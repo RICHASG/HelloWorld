@@ -1,8 +1,8 @@
 <project name="IntegrationInstall" basedir="." default="install-SOA">
 	<property file="build.properties"/>
 	<property environment="env"/>
-	<property name="oracle.home" value="${env.MW_HOME}/soa"/>
- 	<property name="weblogic.home" value="${env.MW_HOME}/wlserver" />
+	<property name="oracle.home" value="D:/Oracle/Middleware12C/Oracle_Home/soa"/>
+ 	<property name="weblogic.home" value="D:/Oracle/Middleware12C/Oracle_Home/wlserver" />
 	
 	<echo>Looking for WLDeploy/WLConfig classes: ${weblogic.home}/server/lib/weblogic.jar</echo>
 	<taskdef name="wldeploy" classname="weblogic.ant.taskdefs.management.WLDeploy" classpath="${weblogic.home}/server/lib/weblogic.jar"/>
