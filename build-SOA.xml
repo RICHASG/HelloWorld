@@ -20,7 +20,7 @@
 			<param name="password" value="${weblogic.password}"/>
 			<param name="overwrite" value="true"/>
 			<param name="forceDefault" value="true"/>
-			<param name="sarLocation" value="deploy/sca_HelloWorld_BS.jar"/>
+			<param name="sarLocation" value="deploy\sca_HelloWorld_BS.jar"/>
 			<!--param name="configplan" value="<change-config-plan>"/-->
 			<param name="partition" value="default"/>
 	    </antcall>
