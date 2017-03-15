@@ -1,0 +1,30 @@
+<project name="IntegrationInstall" basedir="." default="install-SOA">
+	<property file="build.properties"/>
+	<property environment="env"/>
+	<property name="oracle.home" value="${env.MW_HOME}/soa"/>
+ 	<property name="weblogic.home" value="${env.MW_HOME}/wlserver" />
+	
+	<echo>Looking for WLDeploy/WLConfig classes: ${weblogic.home}/server/lib/weblogic.jar</echo>
+	<taskdef name="wldeploy" classname="weblogic.ant.taskdefs.management.WLDeploy" classpath="${weblogic.home}/server/lib/weblogic.jar"/>
+    <taskdef name="wlconfig" classname="weblogic.ant.taskdefs.management.WLConfig" classpath="${weblogic.home}/server/lib/weblogic.jar"/>
+
+	<import file="${oracle.home}/bin/ant-sca-deploy.xml"/>
+
+    <!-- Services -->
+    <target name="install-SOA">
+		<antcall target="deploy" inheritall="false">
+			<param name="wl_home" value="${weblogic.home}"/>
+			<param name="oracle.home" value="${oracle.home}"/>
+			<param name="serverURL" value="${weblogic.server}"/>
+			<param name="user" value="${weblogic.name}"/>
+			<param name="password" value="${weblogic.password}"/>
+			<param name="overwrite" value="true"/>
+			<param name="forceDefault" value="true"/>
+			<param name="sarLocation" value="deploy/sca_HelloWorld_BS.jar"/>
+			<!--param name="configplan" value="<change-config-plan>"/-->
+			<param name="partition" value="default"/>
+	    </antcall>
+		
+	</target>
+</project>
+
